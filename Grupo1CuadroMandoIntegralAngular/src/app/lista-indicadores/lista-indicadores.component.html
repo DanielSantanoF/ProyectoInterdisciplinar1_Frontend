@@ -1,0 +1,19 @@
+<app-menu-navegacion></app-menu-navegacion>
+<div class="contenedor mat-elevation-z8">
+    <div class ="anyadir"><button mat-raised-button color="primary"><mat-icon>add</mat-icon></button></div>
+    <h2>{{listaIndicador[0].proceso.nombre}}</h2>
+    <table mat-table [dataSource]="listaIndicador">
+          <ng-container matColumnDef="colNombreIndicador">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let indicador"> {{indicador.nombreIndicador}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="colOp">
+            <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+            <td mat-cell *matCellDef="let indicador"><button mat-raised-button color="warn" (click)="confirmar(indicador.nombreIndicador,indicador.id)"><mat-icon>delete_forever</mat-icon></button></td>
+          </ng-container>  
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

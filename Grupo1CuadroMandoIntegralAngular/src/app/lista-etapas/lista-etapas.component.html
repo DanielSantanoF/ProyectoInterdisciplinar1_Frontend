@@ -1,0 +1,23 @@
+<app-menu-navegacion></app-menu-navegacion>
+<div class="contenedor mat-elevation-z8">
+    <div class ="anyadir"><button mat-raised-button color="primary"><mat-icon>add</mat-icon></button></div>
+    
+    <h2>Etapas</h2>
+    <table mat-table [dataSource]="listaEtapa">
+      
+          <ng-container matColumnDef="colNombreEtapa">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let etapa"> {{etapa.nombreSubEtapa}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="colOp">
+            <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+            <td mat-cell *matCellDef="let etapa"><a [routerLink]="[ '/curso' ,etapa.id ]"><button mat-raised-button>Ver Cursos</button></a>&nbsp;&nbsp;
+              <button mat-raised-button color="warn" (click)="confirmar(etapa.nombreSubEtapa,etapa.id)"><mat-icon>delete_forever</mat-icon></button></td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

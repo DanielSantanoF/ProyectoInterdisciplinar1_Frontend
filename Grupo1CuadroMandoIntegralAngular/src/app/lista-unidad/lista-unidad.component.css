@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+  }
+  div.contenedor{
+    width: 90%;
+    margin-top: 75px;
+    margin-left: 75px;
+  }
+  div.anyadir{
+    float: right;
+    margin-top: 15px;
+    margin-right: 65px;
+  }

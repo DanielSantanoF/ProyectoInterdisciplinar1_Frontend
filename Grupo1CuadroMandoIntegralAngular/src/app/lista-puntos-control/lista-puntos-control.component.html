@@ -1,0 +1,36 @@
+<app-menu-navegacion></app-menu-navegacion>
+<div class ="anyadir"><button mat-raised-button color="primary" (click) = "nuevoPuntoControlDialog(listaPuntoControl[0].colegioDto)"><mat-icon>add</mat-icon></button></div>
+<div class ="anyadir"><button mat-raised-button color="primary" (click) = "doVervacios()">Ver vacios</button></div>
+<div class="contenedor mat-elevation-z8">
+   
+  <h2>Puntos de Control</h2>
+  <table mat-table [dataSource]="listaPuntoControl">
+    
+    <ng-container matColumnDef="colFecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha punto de control </th>
+      <td mat-cell *matCellDef="let punto"> {{punto.fecha}}</td>
+    </ng-container>
+
+    <!-- NombreCursoAcadémico Column -->
+    <ng-container matColumnDef="colColegioNombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre colegio </th>
+      <td mat-cell *matCellDef="let punto"> {{punto.colegioDto.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="colCur">
+        <th mat-header-cell *matHeaderCellDef> Curso Academico </th>
+        <td mat-cell *matCellDef="let punto"> {{punto.psm[0].cursoAcademico.nombreCursoAcademico}}</td>
+      </ng-container> 
+   
+    <!-- Operaciones Column--> 
+    <ng-container matColumnDef="colOp">
+        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+        <td mat-cell *matCellDef="let punto">
+        <button (click) ="doVerPsm(punto.PsmDto)" mat-raised-button>Ver Psm</button>&nbsp;&nbsp;
+        <button mat-raised-button color="warn" (click) ="borrarPuntoControl(punto.id)" ><mat-icon>delete_forever</mat-icon></button></td>
+      </ng-container> 
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

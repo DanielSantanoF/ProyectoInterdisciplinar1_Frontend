@@ -1,0 +1,40 @@
+<app-menu-navegacion></app-menu-navegacion>
+<br>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Listar Valores de un PSM por Curso Academico y Evaluación</mat-card-title>
+      </mat-card-header>
+      
+      <form>
+    <mat-card-content>
+    <mat-form-field class="example-full-width">
+        <label>Seleccionar el psm:</label><br/>
+        <mat-select [(ngModel)]="psmId" name="psmId">
+            <mat-option *ngFor="let lista of listaPsm" [value]="lista.id">{{lista.nombrePsm}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <label>Seleccionar el curso academico:</label><br/>
+        <mat-select [(ngModel)]="cursoAcademicoId" name="cursoAcademicoId">
+            <mat-option *ngFor="let lista of listaCursosAcademicos" [value]="lista.id">{{lista.nombreCursoAcademico}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+            <label>Seleccionar la evaluacion:</label><br/>
+            <mat-select [(value)]="ev" name="ev">
+                <mat-option value="PRIMERA">1ª Evaluación</mat-option>
+                <mat-option value="SEGUNDA"><p>2ª Evaluación</p></mat-option>
+                <mat-option value="TERCERA"><p>3ª Evaluación</p></mat-option>
+                <mat-option value="FINAL"><p>Final</p></mat-option>
+                <mat-option value="SEPTIEMBRE"><p>Septiembre</p></mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button color="primary" class="btn-block" (click)="doSearch()">Buscar</button>
+      </form>
+    </mat-card>
+</div>

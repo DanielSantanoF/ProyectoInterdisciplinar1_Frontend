@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <span>CuadroMandoIntegral</span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">aspect_ratio</mat-icon>&nbsp;&nbsp;
+    <div *ngIf="rol != null">
+    <a *ngIf="rol != USER" [routerLink]="[ '/usuarios' ]">Usuarios</a>&nbsp;&nbsp;
+    <a [routerLink]="[ '/cursosacademicos' ]">Cursos Académicos</a>&nbsp;&nbsp;
+    <a [routerLink]="[ '/listaPsm' ]">Psm</a>&nbsp;&nbsp;
+    <!-- SUBIDA DE ARCHIVOS PARA PROCESAR EL CSV <a [routerLink]="[ '/nuevoPsm' ]">Nuevo Psm</a>&nbsp;&nbsp; -->
+    <button mat-raised-button color="warn" (click)="logOut()">LogOut</button>
+    </div>
+  </mat-toolbar-row>
+  </mat-toolbar>

@@ -1,16 +1,7 @@
-# Proyecto1 Interdisciplinar del Grupo1 2DAM 
-
-José Antonio Llamas, José Luis Díez, Miguel Lázaro y Daniel Santano Fernández
-
 # Grupo1CuadroMandoIntegralAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
-## USUARIOS DE LA APLICACIÓN
-    USUARIO BÁSICO -> usuario:1234
-    USUARIO ADMINISTRADOR -> admin:1234
-    USUARIO SUPER ADMINISTRADOR -> superAdmin:1234
-    
 ## Librerías a instalar
 
 ### ANGULAR MATERIAL

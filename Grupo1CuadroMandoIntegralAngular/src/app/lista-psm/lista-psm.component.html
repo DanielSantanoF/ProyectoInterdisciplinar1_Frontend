@@ -1,0 +1,36 @@
+<app-menu-navegacion></app-menu-navegacion>
+<div class ="anyadir"><button mat-raised-button color="primary" (click)="buscarPsmByCurAcYEv()"><mat-icon>search</mat-icon></button></div>
+<div class="contenedor mat-elevation-z8">
+
+    <h2>Psm</h2>
+    <table mat-table [dataSource]="listadoPsm">
+      
+      <!-- NombrePsm Column -->
+      <ng-container matColumnDef="colNombre">
+        <th mat-header-cell *matHeaderCellDef> PSM </th>
+        <td mat-cell *matCellDef="let psm"> {{psm.nombrePsm}}</td>
+      </ng-container>
+
+      <!-- Evaluacion Column -->
+      <ng-container matColumnDef="colEvaluacion">
+        <th mat-header-cell *matHeaderCellDef> Evaluación </th>
+        <td mat-cell *matCellDef="let psm"> {{psm.evaluacion}}</td>
+      </ng-container>
+
+      <!-- Curso Académico Column -->
+      <ng-container matColumnDef="colCursoAcad">
+        <th mat-header-cell *matHeaderCellDef> Curso Académico </th>
+        <td mat-cell *matCellDef="let psm"> {{psm.cursoAcademico.nombreCursoAcademico}}</td>
+      </ng-container>
+
+      <!-- Operaciones Column -->
+      <ng-container matColumnDef="colOp">
+        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+        <td mat-cell *matCellDef="let psm">
+        <button mat-raised-button color="warn" (click)="confirmar(psm.nombrePsm,psm.id)"><mat-icon>delete_forever</mat-icon></button></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

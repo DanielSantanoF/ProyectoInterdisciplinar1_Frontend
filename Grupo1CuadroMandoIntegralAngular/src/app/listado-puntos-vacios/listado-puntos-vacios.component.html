@@ -1,0 +1,32 @@
+<app-menu-navegacion></app-menu-navegacion>
+
+<div *ngIf="!listaPuntoControlVacios==null" class ="anyadir"><button mat-raised-button color="primary" (click) = "nuevoPuntoControlDialogVacios(listaPuntoControlVacios[0].colegioDto)"><mat-icon>add</mat-icon></button></div>
+<div  class="contenedor mat-elevation-z8">
+  
+        <table mat-table [dataSource]="listaPuntoControlVacios">
+          
+          <!-- Id Column -->
+      
+          <ng-container matColumnDef="colFecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha punto de control </th>
+            <td mat-cell *matCellDef="let punto"> {{punto.fecha}}</td>
+          </ng-container>
+      
+          <!-- NombreCursoAcadémico Column -->
+          <ng-container matColumnDef="colColegioNombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre colegio </th>
+            <td mat-cell *matCellDef="let punto"> {{punto.colegioDto.nombre}}</td>
+          </ng-container>
+    
+          <!-- Operaciones Column--> 
+          <ng-container matColumnDef="colOp">
+              <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+              <td mat-cell *matCellDef="let punto"><a><button mat-raised-button>Ver Psm</button></a>&nbsp;&nbsp;
+              <button mat-raised-button color="warn" (click) ="borrarPuntoControl(punto.id)" ><mat-icon>delete_forever</mat-icon></button></td>
+            </ng-container> 
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      

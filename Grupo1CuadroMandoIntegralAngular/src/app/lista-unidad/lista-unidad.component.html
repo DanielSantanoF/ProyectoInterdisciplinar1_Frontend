@@ -1,0 +1,20 @@
+<app-menu-navegacion></app-menu-navegacion>
+<div class="contenedor mat-elevation-z8">
+    <div class ="anyadir"><button mat-raised-button color="primary"><mat-icon>add</mat-icon></button></div>
+    <table mat-table [dataSource]="listaUnidad">
+      
+          <ng-container matColumnDef="nombreUnidad">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let unidad"> {{unidad.nombreUnidad}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="colOp">
+            <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+            <td mat-cell *matCellDef="let unidad"><button mat-raised-button color="warn" (click)="confirmar(unidad.nombreUnidad,unidad.id)"><mat-icon>delete_forever</mat-icon></button></td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

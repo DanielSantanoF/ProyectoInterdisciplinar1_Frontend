@@ -1,0 +1,36 @@
+<app-menu-navegacion></app-menu-navegacion>
+<div class ="anyadir"><button *ngIf="rol != user && rol != admin" mat-raised-button color="primary" (click) = "nuevoProcesoDialog(listaProcesos[0].cursoAcademico)"><mat-icon>add</mat-icon></button></div>
+<div class="contenedor mat-elevation-z8">
+ 
+  <h2>Procesos</h2>
+  <table mat-table [dataSource]="listaProcesos">
+    
+    <ng-container matColumnDef="colNombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let proceso"> {{proceso.nombre}}</td>
+    </ng-container>
+    <ng-container matColumnDef="colTipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let proceso">{{proceso.tipo}}</td>
+      </ng-container> 
+
+    <ng-container matColumnDef="colCur">
+        <th mat-header-cell *matHeaderCellDef> Curso Academico </th>
+        <td mat-cell *matCellDef="let proceso"> {{proceso.cursoAcademico.nombreCursoAcademico}}</td>
+      </ng-container> 
+   
+    <!-- Operaciones Column--> 
+    <ng-container matColumnDef="colOp">
+        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+        <td mat-cell *matCellDef="let proceso">
+        <button *ngIf="rol != user && rol != admin" mat-raised-button (click) ="doVerIndicadores(proceso.id)" >Ver Indicadores</button>&nbsp;&nbsp;
+        <button *ngIf="rol != user && rol != admin" mat-raised-button color="warn" (click) ="confirmar(proceso.nombre,proceso.id)" ><mat-icon>delete_forever</mat-icon></button>
+      </td>
+      </ng-container> 
+  
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
